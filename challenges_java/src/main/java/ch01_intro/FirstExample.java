@@ -1,6 +1,6 @@
 package ch01_intro;
 
-public class example1 {
+public class FirstExample {
 
     public static String stringReversal(String input) {
         return input.length() <= 1 ? input : stringReversal(input.substring(1)) + input.charAt(0);
