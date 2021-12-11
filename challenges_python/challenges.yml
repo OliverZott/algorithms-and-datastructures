@@ -1,0 +1,5 @@
+name: challenges
+dependencies:
+  - python=3.10
+#  - pytest
+
