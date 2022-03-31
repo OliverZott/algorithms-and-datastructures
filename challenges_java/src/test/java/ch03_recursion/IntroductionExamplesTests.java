@@ -1,12 +1,12 @@
 package ch03_recursion;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static ch03_recursion.IntroductionExamples.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IntroductionExamplesTests {
 
@@ -48,4 +48,36 @@ public class IntroductionExamplesTests {
     public void fibTest_invalidInput_throwsException(int value) {
         assertThrowsExactly(IllegalArgumentException.class, () -> sum(value));
     }
+
+
+    @Test
+    public void isPalindromeSimpleRecursive_correctInput_true() {
+        int[] input = new int[]{1, 2, 3, 2, 1};
+
+        var result = isPalindromeSimpleRecursive(input);
+
+        assertTrue(result);
+    }
+
+    @Test
+    public void isPalindromeRecursive_correctInput_returnTrue() {
+        int[] input = new int[]{1, 2, 3, 2, 1};
+        int[] input2 = new int[]{1, 2, 2, 1};
+
+        var result = isPalindromeRecursive(input);
+        var result2 = isPalindromeRecursive(input2);
+
+        assertTrue(result);
+        assertTrue(result2);
+    }
+
+    @Test
+    public void isPalindromeRecursive_wrongInput_returnFalse() {
+        int[] input = new int[]{1, 2, 3, 1, 2, 1};
+
+        var result = isPalindromeRecursive(input);
+
+        assertFalse(result);
+    }
+
 }
