@@ -80,4 +80,27 @@ public class IntroductionExamplesTests {
         assertFalse(result);
     }
 
+    @Test
+    public void isPalindromeIterative_correctInput_returnTrue() {
+        int[] input = new int[]{1, 2, 3, 2, 1};
+        int[] input2 = new int[]{1, 2, 2, 1};
+        int[] input3 = new int[]{17};
+
+        var result = isPalindromeIterative(input);
+        var result2 = isPalindromeIterative(input2);
+        var result3 = isPalindromeIterative(input2);
+
+        assertTrue(result);
+        assertTrue(result2);
+        assertTrue(result3);
+    }
+
+    @Test
+    public void isPalindromeIterative_wrongInput_returnFalse() {
+        int[] input = new int[]{1, 2, 3, 1, 2, 1};
+
+        var result = isPalindromeIterative(input);
+
+        assertFalse(result);
+    }
 }

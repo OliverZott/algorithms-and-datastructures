@@ -1,5 +1,6 @@
 package ch03_recursion;
 
+import java.awt.*;
 import java.util.Arrays;
 
 public class IntroductionExamples {
@@ -63,12 +64,38 @@ public class IntroductionExamples {
             return isPalindromeRecursive(input, left, right);
         }
 
-
         return false;
+    }
+
+    public static boolean isPalindromeIterative(int[] input) {
+        int left = 0;
+        int right = input.length - 1;
+        boolean sameValue = true;
+
+        while (left < right && sameValue) {
+            left += 1;
+            right -= 1;
+            sameValue = input[left] == input[right];
+        }
+        return sameValue;
+    }
+
+    public static void fractalGenerator(final int n) {
+        if (n < 1) {
+            return;
+        }
+
+        if (n == 1) {
+            System.out.println("-");
+        } else {
+            fractalGenerator(n - 1);
+            System.out.println("=".repeat(n));
+            fractalGenerator(n - 1);
+        }
     }
 
 
     public static void main(String[] args) {
-
+        fractalGenerator(3);
     }
 }
