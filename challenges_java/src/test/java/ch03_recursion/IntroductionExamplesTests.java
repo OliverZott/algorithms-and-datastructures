@@ -103,4 +103,13 @@ public class IntroductionExamplesTests {
 
         assertFalse(result);
     }
+
+
+    @ParameterizedTest
+    @CsvSource({"1231, 6", "2,2", "42, 8"})
+    public void multiplyAllDigits_correct(int value, int expected) {
+        var result = multiplyAllDigits(value);
+
+        assertEquals(expected, result);
+    }
 }

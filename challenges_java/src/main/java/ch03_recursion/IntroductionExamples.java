@@ -94,6 +94,20 @@ public class IntroductionExamples {
         }
     }
 
+    public static int multiplyAllDigits(final int value) {
+
+        var lastDigit = value % 10;
+        var remainder = value / 10;
+        System.out.printf("Multiply digits: %-10d | remainder: %d, digit: %d%n", value, remainder, lastDigit);
+
+        if (remainder > 0) {
+            var result = multiplyAllDigits(remainder);
+            System.out.printf("-> %d * %d = %d%n", result, lastDigit, result * lastDigit);
+            return result * lastDigit;
+        }
+        return value;
+    }
+
 
     public static void main(String[] args) {
         fractalGenerator(3);
