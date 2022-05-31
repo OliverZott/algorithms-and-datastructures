@@ -37,6 +37,63 @@ public class Chapter03Examples {
         return result;
     }
 
+    /**
+     * Example 3.2.2
+     *
+     * @param number value
+     * @return Amount of digits
+     */
+    public static int calcDigits(final int number) {
+        if (number < 0) {
+            throw new IllegalArgumentException("Number must be greater zero!");
+        }
+
+        final int remainder = number / 10;
+
+        if (number < 10) {
+            return 1;
+        }
+        return 1 + calcDigits(remainder);
+    }
+
+    public static int calcSumOfDigits(final int number) {
+        if (number < 0) {
+            throw new IllegalArgumentException("Number must be greater zero!");
+        }
+
+        final int lastDigit = number % 10;
+        final int remainder = number / 10;
+
+        if (remainder == 0) {
+            return number;
+        }
+        return lastDigit + calcSumOfDigits(remainder);
+    }
+
+
+    /**
+     * Example 3.2.3
+     *
+     * @param firstValue  input
+     * @param secondValue input
+     * @return greatest common divisor
+     */
+    public static int gcd(int firstValue, int secondValue) {
+//        int temp;
+//        if (firstValue <= secondValue) {
+//            temp = firstValue;
+//            firstValue = secondValue;
+//            secondValue = temp;
+//        }
+
+        if (secondValue == 0) {
+            return firstValue;
+        } else {
+            var temp = firstValue % secondValue;
+            var temp2 = secondValue % firstValue;
+            return gcd(secondValue, firstValue % secondValue);
+        }
+    }
 
     public static void main(String[] args) {
 
